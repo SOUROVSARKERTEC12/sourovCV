@@ -2,252 +2,1740 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Sourov Sarkar - Backend Developer specializing in Node.js, Express.js, and NestJS. Building scalable, performant backend solutions.">
+    <meta name="author" content="Sourov Sarkar">
+    <meta name="keywords" content="Backend Developer, Node.js, NestJS, Express.js, MongoDB, PostgreSQL, Full Stack Developer">
+    
+    <title>Sourov Sarkar - Backend Developer Portfolio</title>
 
-    <title>Sourov Sarker</title>
+    <style>
+        /* CSS Variables for Theme Colors */
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f9fafb;
+            --bg-tertiary: #f3f4f6;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        /* Dark Mode Variables */
+        [data-theme="dark"] {
+            --text-primary: #f9fafb;
+            --text-secondary: #d1d5db;
+            --bg-primary: #111827;
+            --bg-secondary: #1f2937;
+            --bg-tertiary: #374151;
+            --border-color: #4b5563;
+        }
 
-    <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Custom styles for this template -->
-    <link href="css/grayscale.min.css" rel="stylesheet">
+        html {
+            scroll-behavior: smooth;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: var(--transition);
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover, a:focus {
+            color: var(--primary-dark);
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Section Spacing */
+        section {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 768px) {
+            section {
+                padding: 6rem 0;
+            }
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn:hover, .btn:focus {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
 </head>
 
 <body id="page-top">
+    <style>
+        /* Navigation Styles */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
 
-<!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Sourov Sarker</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
-            Menu
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#projects">Portfolio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger" href="#signup">Contact</a>
+        nav.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link:focus {
+            color: var(--primary-color);
+            outline: none;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link:focus::after {
+            width: 100%;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--border-color);
+            border-radius: 0.5rem;
+            padding: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover, .theme-toggle:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-primary);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-primary);
+        }
+
+        @media (max-width: 767px) {
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-primary);
+                flex-direction: column;
+                padding: 2rem;
+                gap: 1rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                box-shadow: var(--shadow-lg);
+                border-top: 1px solid var(--border-color);
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+        }
+    </style>
+
+    <!-- Navigation -->
+    <nav id="mainNav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand" aria-label="Sourov Sarkar - Home">Sourov Sarkar</a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="navToggle">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode" id="themeToggle">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>
+                        </svg>
+                    </button>
                 </li>
             </ul>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Header -->
-<header class="masthead">
-    <div class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-            <h2 class="mx-auto my-0 text-uppercase">Welcome to Sourov Sarker web page</h2>
-            <a href="#about" class="btn btn-primary js-scroll-trigger">Get Started</a>
-        </div>
-    </div>
-</header>
+    <main>
+        <!-- Hero Section -->
+        <header id="hero" class="hero-section">
+            <style>
+                .hero-section {
+                    min-height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+                    color: white;
+                    text-align: center;
+                    padding-top: 80px;
+                    position: relative;
+                    overflow: hidden;
+                }
 
-<!-- About Section -->
-<section id="about" class="about-section text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h3 class="text-white mb-4">Student of Computer Science and Engineering Department</h3>
-                <h3 class="text-white mb-4">University of Rajshahi </h3>
-                <h2 class="text-white mb-4">Programmer-Web Designer-Developer</h2>
+                .hero-section::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+                    opacity: 0.3;
+                }
 
-            </div>
-        </div>
+                .hero-content {
+                    position: relative;
+                    z-index: 1;
+                    max-width: 800px;
+                    padding: 2rem;
+                }
 
-        <img src="img/ss.jpg" class="img-fluid" alt="">
-    </div>
-</section>
+                .hero-section h1 {
+                    font-size: 3rem;
+                    margin-bottom: 1rem;
+                    color: white;
+                    animation: fadeInUp 0.8s ease;
+                }
 
-<!-- programming Section -->
-<section id="projects" class="projects-section bg-light">
-    <div class="container">
+                .hero-section .tagline {
+                    font-size: 1.5rem;
+                    margin-bottom: 2rem;
+                    color: rgba(255, 255, 255, 0.9);
+                    animation: fadeInUp 0.8s ease 0.2s both;
+                }
 
-        <!-- C Project Row -->
-        <div class="row align-items-center no-gutters mb-4 mb-lg-5">
-            <div class="col-xl-8 col-lg-7">
-                <img class="img-fluid mb-3 mb-lg-0" src="img/C-syntax.jpg" alt="">
-            </div>
-            <div class="col-xl-4 col-lg-5">
-                <div class="featured-text text-center text-lg-left">
-                    <h4>C-Programming</h4>
-                    <p class="text-black-50 mb-0">The language that make to do programming.C is the first programming
-                        language of my programming life. </p>
+                .hero-section .cta-buttons {
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    animation: fadeInUp 0.8s ease 0.4s both;
+                }
+
+                .hero-section .btn {
+                    background-color: white;
+                    color: var(--primary-color);
+                }
+
+                .hero-section .btn:hover, .hero-section .btn:focus {
+                    background-color: rgba(255, 255, 255, 0.9);
+                    transform: translateY(-3px);
+                }
+
+                .hero-section .btn-secondary {
+                    background-color: transparent;
+                    border: 2px solid white;
+                    color: white;
+                }
+
+                .hero-section .btn-secondary:hover, .hero-section .btn-secondary:focus {
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                @keyframes fadeInUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(30px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                @media (max-width: 767px) {
+                    .hero-section h1 {
+                        font-size: 2rem;
+                    }
+
+                    .hero-section .tagline {
+                        font-size: 1.25rem;
+                    }
+                }
+            </style>
+            <div class="hero-content">
+                <h1>Sourov Sarkar</h1>
+                <p class="tagline">Backend Developer | Building Scalable & Performant Solutions</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <!-- java -->
-        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-            <div class="col-lg-6">
-                <img class="img-fluid" src="img/Java_logo_icon.png" alt="">
-            </div>
-            <div class="col-lg-6">
-                <div class="bg-black text-center h-100 project">
-                    <div class="d-flex h-100">
-                        <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">Java</h4>
-                            <p class="mb-0 text-white-50">Java the language that set my goal of engineering career.</p>
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <style>
+                .about-section {
+                    background-color: var(--bg-secondary);
+                }
 
+                .about-content {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 3rem;
+                    align-items: center;
+                }
+
+                @media (min-width: 768px) {
+                    .about-content {
+                        grid-template-columns: 300px 1fr;
+                    }
+                }
+
+                .about-image {
+                    width: 100%;
+                    max-width: 300px;
+                    height: 300px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin: 0 auto;
+                    border: 4px solid var(--primary-color);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                .about-text h2 {
+                    margin-bottom: 1.5rem;
+                    color: var(--text-primary);
+                }
+
+                .about-text p {
+                    margin-bottom: 1rem;
+                    font-size: 1.1rem;
+                    line-height: 1.8;
+                }
+
+                .about-details {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 1.5rem;
+                    margin-top: 2rem;
+                }
+
+                .detail-item {
+                    padding: 1rem;
+                    background-color: var(--bg-primary);
+                    border-radius: 0.5rem;
+                    border: 1px solid var(--border-color);
+                }
+
+                .detail-item strong {
+                    display: block;
+                    color: var(--primary-color);
+                    margin-bottom: 0.5rem;
+                }
+            </style>
+            <div class="container">
+                <div class="about-content">
+                    <div>
+                        <img src="/img/Sourov.jpg" alt="Sourov Sarkar - Backend Developer" class="about-image">
+                    </div>
+                    <div class="about-text">
+                        <h2>About Me</h2>
+                        <p>
+                            As a Backend Developer, I'm passionate about designing systems that deliver performance, 
+                            scalability, and reliability. Skilled in Node.js, Express.js, and NestJS, I turn complex 
+                            logic into efficient, maintainable backend solutions.
+                        </p>
+                        <p>
+                            Currently, I'm expanding my expertise in NestJS and GraphQL, focusing on TypeORM, modular 
+                            architecture, and cloud optimization to enhance system efficiency and streamline development. 
+                            Committed to clean architecture, optimized queries, and secure data handling, I build backend 
+                            ecosystems that enable seamless experiences and sustainable business growth.
+                        </p>
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <strong>Location</strong>
+                                <span>Palashbari-5730, Gaibandha, Bangladesh</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Education</strong>
+                                <span>B.Sc. in Computer Science and Engineering</span>
+                            </div>
+                            <div class="detail-item">
+                                <strong>Institution</strong>
+                                <span>TMSS Engineering College, Bogura</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- python -->
-        <div class="row justify-content-center no-gutters">
-            <div class="col-lg-6">
-                <img class="img-fluid" src="img/python-logo-transparent-2.png" alt="">
-            </div>
-            <div class="col-lg-6 order-lg-first">
-                <div class="bg-black text-center h-100 project">
-                    <div class="d-flex h-100">
-                        <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">Python</h4>
-                            <p class="mb-0 text-white-50">The best language in my programming life.</p>
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <style>
+                .skills-section {
+                    background-color: var(--bg-primary);
+                }
 
+                .section-header {
+                    text-align: center;
+                    margin-bottom: 3rem;
+                }
+
+                .section-header h2 {
+                    margin-bottom: 0.5rem;
+                }
+
+                .section-header p {
+                    font-size: 1.1rem;
+                    max-width: 600px;
+                    margin: 0 auto;
+                }
+
+                .skills-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 2rem;
+                }
+
+                .skill-category {
+                    background-color: var(--bg-secondary);
+                    padding: 2rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid var(--border-color);
+                    transition: var(--transition);
+                }
+
+                .skill-category:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                .skill-category h3 {
+                    margin-bottom: 1.5rem;
+                    color: var(--primary-color);
+                    font-size: 1.5rem;
+                }
+
+                .skill-badges {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.75rem;
+                }
+
+                .skill-badge {
+                    display: inline-block;
+                    padding: 0.5rem 1rem;
+                    background-color: var(--primary-color);
+                    color: white;
+                    border-radius: 2rem;
+                    font-size: 0.9rem;
+                    font-weight: 500;
+                    transition: var(--transition);
+                }
+
+                .skill-badge:hover {
+                    background-color: var(--primary-dark);
+                    transform: scale(1.05);
+                }
+            </style>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Skills & Technologies</h2>
+                    <p>Technologies and tools I work with to build robust backend solutions</p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-badges">
+                            <span class="skill-badge">JavaScript</span>
+                            <span class="skill-badge">TypeScript</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">C</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks & Libraries</h3>
+                        <div class="skill-badges">
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">Express.js</span>
+                            <span class="skill-badge">NestJS</span>
+                            <span class="skill-badge">React</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Databases</h3>
+                        <div class="skill-badges">
+                            <span class="skill-badge">MongoDB</span>
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">PostgreSQL</span>
+                            <span class="skill-badge">SQLite</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>APIs & Tools</h3>
+                        <div class="skill-badges">
+                            <span class="skill-badge">REST API</span>
+                            <span class="skill-badge">SOAP API</span>
+                            <span class="skill-badge">GraphQL</span>
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">TypeORM</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- nodejs -->
-        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-            <div class="col-lg-6">
-                <img class="img-fluid" src="img/nodejs-logo-vector-png-kirkstrobeck-commented-on-oct-20-2015-1085.png" alt="">
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <style>
+                .projects-section {
+                    background-color: var(--bg-secondary);
+                }
+
+                .projects-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 2rem;
+                }
+
+                .project-card {
+                    background-color: var(--bg-primary);
+                    border-radius: 0.5rem;
+                    overflow: hidden;
+                    border: 1px solid var(--border-color);
+                    transition: var(--transition);
+                    cursor: pointer;
+                }
+
+                .project-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                .project-image {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: white;
+                    font-size: 3rem;
+                }
+
+                .project-content {
+                    padding: 1.5rem;
+                }
+
+                .project-content h3 {
+                    margin-bottom: 0.5rem;
+                    color: var(--text-primary);
+                }
+
+                .project-content .project-date {
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                    margin-bottom: 1rem;
+                }
+
+                .project-content p {
+                    margin-bottom: 1rem;
+                    font-size: 0.95rem;
+                }
+
+                .project-tech {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 0.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .tech-tag {
+                    padding: 0.25rem 0.75rem;
+                    background-color: var(--bg-tertiary);
+                    border-radius: 1rem;
+                    font-size: 0.85rem;
+                    color: var(--text-primary);
+                }
+
+                .project-links {
+                    display: flex;
+                    gap: 1rem;
+                }
+
+                .project-link {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    padding: 0.5rem 1rem;
+                    background-color: var(--primary-color);
+                    color: white;
+                    border-radius: 0.5rem;
+                    font-size: 0.9rem;
+                    transition: var(--transition);
+                }
+
+                .project-link:hover, .project-link:focus {
+                    background-color: var(--primary-dark);
+                    outline: 2px solid var(--primary-color);
+                    outline-offset: 2px;
+                }
+
+                .project-link svg {
+                    width: 16px;
+                    height: 16px;
+                    fill: currentColor;
+                }
+
+                /* Project Modal */
+                .modal {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    z-index: 2000;
+                    overflow-y: auto;
+                    padding: 2rem;
+                }
+
+                .modal.active {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .modal-content {
+                    background-color: var(--bg-primary);
+                    border-radius: 0.5rem;
+                    max-width: 800px;
+                    width: 100%;
+                    max-height: 90vh;
+                    overflow-y: auto;
+                    position: relative;
+                    padding: 2rem;
+                    margin: auto;
+                }
+
+                .modal-close {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+                    background: none;
+                    border: none;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    color: var(--text-primary);
+                    width: 40px;
+                    height: 40px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    transition: var(--transition);
+                }
+
+                .modal-close:hover, .modal-close:focus {
+                    background-color: var(--bg-tertiary);
+                    outline: 2px solid var(--primary-color);
+                    outline-offset: 2px;
+                }
+
+                .modal-image {
+                    width: 100%;
+                    height: 300px;
+                    object-fit: cover;
+                    border-radius: 0.5rem;
+                    margin-bottom: 1.5rem;
+                    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+                }
+
+                @media (max-width: 767px) {
+                    .projects-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <p>Some of my recent work showcasing backend development expertise</p>
+                </div>
+                <div class="projects-grid">
+                    <article class="project-card" data-project="netflix">
+                        <div class="project-image">🎬</div>
+                        <div class="project-content">
+                            <h3>Netflix Clone</h3>
+                            <div class="project-date">Mar 2023 - Jul 2023</div>
+                            <p>Experience the world of entertainment brought to life with this Netflix Clone, an immersive streaming interface inspired by the iconic Netflix design.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MongoDB</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SOUROVSARKERTEC12/Netflix" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Netflix Clone repository">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    Repository
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="task">
+                        <div class="project-image">✅</div>
+                        <div class="project-content">
+                            <h3>Task Management Application</h3>
+                            <div class="project-date">Sep 2023 - Nov 2023</div>
+                            <p>A task management application built with the MERN stack that supports secure user authentication and essential task operations.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">React</span>
+                                <span class="tech-tag">Tailwind</span>
+                                <span class="tech-tag">Node.js</span>
+                                <span class="tech-tag">Express.js</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SOUROVSARKERTEC12/Task_Management_App" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View Task Management App repository">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    Repository
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-project="file-auth">
+                        <div class="project-image">📁</div>
+                        <div class="project-content">
+                            <h3>File Auth Management</h3>
+                            <div class="project-date">Nov 2025</div>
+                            <p>A robust, production-ready NestJS application for file management with JWT authentication and role-based access control (RBAC).</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">NestJS</span>
+                                <span class="tech-tag">Express.js</span>
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">JWT</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/SOUROVSARKERTEC12/file-auth-management" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View File Auth Management repository">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                    </svg>
+                                    Repository
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-            <div class="col-lg-6">
-                <div class="bg-black text-center h-100 project">
-                    <div class="d-flex h-100">
-                        <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">Nodejs</h4>
-                            <p class="mb-0 text-white-50">The language that i have to learn very quickly for my web developing career.</p>
 
+            <!-- Project Modal -->
+            <div class="modal" id="projectModal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close modal" id="modalClose">&times;</button>
+                    <img src="" alt="" class="modal-image" id="modalImage">
+                    <h2 id="modalTitle"></h2>
+                    <div id="modalDate" class="project-date"></div>
+                    <p id="modalDescription"></p>
+                    <div class="project-tech" id="modalTech"></div>
+                    <div class="project-links" id="modalLinks"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section">
+            <style>
+                .experience-section {
+                    background-color: var(--bg-primary);
+                }
+
+                .timeline {
+                    position: relative;
+                    max-width: 800px;
+                    margin: 0 auto;
+                }
+
+                .timeline::before {
+                    content: '';
+                    position: absolute;
+                    left: 50%;
+                    top: 0;
+                    bottom: 0;
+                    width: 2px;
+                    background-color: var(--border-color);
+                    transform: translateX(-50%);
+                }
+
+                @media (max-width: 767px) {
+                    .timeline::before {
+                        left: 20px;
+                    }
+                }
+
+                .timeline-item {
+                    position: relative;
+                    margin-bottom: 3rem;
+                    display: flex;
+                    align-items: flex-start;
+                }
+
+                .timeline-item:nth-child(odd) {
+                    flex-direction: row;
+                }
+
+                .timeline-item:nth-child(even) {
+                    flex-direction: row-reverse;
+                }
+
+                @media (max-width: 767px) {
+                    .timeline-item,
+                    .timeline-item:nth-child(even) {
+                        flex-direction: row;
+                    }
+                }
+
+                .timeline-marker {
+                    position: absolute;
+                    left: 50%;
+                    width: 20px;
+                    height: 20px;
+                    background-color: var(--primary-color);
+                    border: 4px solid var(--bg-primary);
+                    border-radius: 50%;
+                    transform: translateX(-50%);
+                    z-index: 1;
+                }
+
+                @media (max-width: 767px) {
+                    .timeline-marker {
+                        left: 20px;
+                    }
+                }
+
+                .timeline-content {
+                    width: calc(50% - 40px);
+                    background-color: var(--bg-secondary);
+                    padding: 1.5rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid var(--border-color);
+                    margin: 0 2rem;
+                    transition: var(--transition);
+                }
+
+                .timeline-content:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                @media (max-width: 767px) {
+                    .timeline-content {
+                        width: calc(100% - 60px);
+                        margin-left: 50px;
+                        margin-right: 0;
+                    }
+                }
+
+                .timeline-content h3 {
+                    margin-bottom: 0.5rem;
+                    color: var(--primary-color);
+                }
+
+                .timeline-content .company {
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 0.5rem;
+                }
+
+                .timeline-content .date {
+                    font-size: 0.9rem;
+                    color: var(--text-secondary);
+                    margin-bottom: 1rem;
+                }
+
+                .timeline-content .location {
+                    font-size: 0.85rem;
+                    color: var(--text-secondary);
+                    margin-bottom: 1rem;
+                }
+
+                .timeline-content ul {
+                    list-style: none;
+                    padding-left: 0;
+                }
+
+                .timeline-content li {
+                    padding-left: 1.5rem;
+                    position: relative;
+                    margin-bottom: 0.5rem;
+                    color: var(--text-secondary);
+                }
+
+                .timeline-content li::before {
+                    content: '▸';
+                    position: absolute;
+                    left: 0;
+                    color: var(--primary-color);
+                }
+            </style>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Work Experience</h2>
+                    <p>My professional journey in backend development</p>
+                </div>
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Backend Developer</h3>
+                            <div class="company">Fly Far Tech</div>
+                            <div class="date">Dec 2024 - Oct 2025</div>
+                            <div class="location">1229, Hazi Abdul Latif Mansion, 2nd Floor, Ka-9, Bashundhara Rd, Dhaka, Bangladesh</div>
+                            <ul>
+                                <li>Developed and optimized multi-level authentication systems integrating Google, Facebook, Apple, Google Authenticator, and Microsoft Authenticator for enhanced user security and MFA support.</li>
+                                <li>Designed and implemented the Tour Package Management Module within the admin panel, enabling seamless creation and customization of travel packages.</li>
+                                <li>Built a comprehensive Visa Management Module for streamlined visa processing and rule-based validation in the admin dashboard.</li>
+                                <li>Integrated third-party Flight Radar APIs to enable real-time flight tracking and analytics across the platform.</li>
+                                <li>Collaborated with senior developers to optimize backend workflows, improving performance and reducing overall development workload.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section (Optional) -->
+        <section id="testimonials" class="testimonials-section">
+            <style>
+                .testimonials-section {
+                    background-color: var(--bg-secondary);
+                }
+
+                .testimonials-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 2rem;
+                }
+
+                .testimonial-card {
+                    background-color: var(--bg-primary);
+                    padding: 2rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid var(--border-color);
+                    position: relative;
+                    transition: var(--transition);
+                }
+
+                .testimonial-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-lg);
+                }
+
+                .testimonial-card::before {
+                    content: '"';
+                    position: absolute;
+                    top: -10px;
+                    left: 20px;
+                    font-size: 4rem;
+                    color: var(--primary-color);
+                    opacity: 0.2;
+                }
+
+                .testimonial-text {
+                    margin-bottom: 1.5rem;
+                    font-style: italic;
+                    color: var(--text-secondary);
+                }
+
+                .testimonial-author {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+                .testimonial-author strong {
+                    color: var(--text-primary);
+                }
+
+                .testimonial-author span {
+                    color: var(--text-secondary);
+                    font-size: 0.9rem;
+                }
+            </style>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Testimonials</h2>
+                    <p>What colleagues and clients say about my work</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Sourov demonstrates exceptional backend development skills with a strong focus on clean architecture and performance optimization.
+                        </p>
+                        <div class="testimonial-author">
+                            <div>
+                                <strong>Jahidur Rahman Shohan</strong>
+                                <span>CTO, Fly Far Tech</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            Working with Sourov has been a great experience. His attention to detail and commitment to delivering quality solutions is impressive.
+                        </p>
+                        <div class="testimonial-author">
+                            <div>
+                                <strong>Syed Afridi</strong>
+                                <span>Project Manager</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
-</section>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <style>
+                .contact-section {
+                    background-color: var(--bg-primary);
+                }
 
-<section id="signup" class="signup-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-lg-8 mx-auto text-center">
-                <!--
+                .contact-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 2rem;
+                    margin-bottom: 3rem;
+                }
 
-                  <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
-                  <h2 class="text-white mb-5">Subscribe to receive updates!</h2>
+                .contact-card {
+                    background-color: var(--bg-secondary);
+                    padding: 2rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid var(--border-color);
+                    text-align: center;
+                    transition: var(--transition);
+                }
 
-                  <form class="form-inline d-flex">
-                    <input type="email" class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" placeholder="Enter email address...">
-                    <button type="submit" class="btn btn-primary mx-auto">Subscribe</button>
-                  </form>
-                  -->
-            </div>
-        </div>
-    </div>
-</section>
+                .contact-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: var(--shadow-lg);
+                }
 
-<!-- Contact Section -->
-<section class="contact-section bg-black">
-    <div class="container">
+                .contact-icon {
+                    width: 48px;
+                    height: 48px;
+                    margin: 0 auto 1rem;
+                    fill: var(--primary-color);
+                }
 
-        <div class="row">
+                .contact-card h3 {
+                    margin-bottom: 0.5rem;
+                    color: var(--text-primary);
+                }
 
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-map-marked-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Address</h4>
-                        <hr class="my-4">
-                        <div class="small text-black-50">Thengamara,Gokul,Bogra-5800,BD</div>
+                .contact-card a {
+                    color: var(--text-secondary);
+                }
+
+                .contact-card a:hover, .contact-card a:focus {
+                    color: var(--primary-color);
+                    outline: 2px solid var(--primary-color);
+                    outline-offset: 2px;
+                }
+
+                .contact-form {
+                    max-width: 600px;
+                    margin: 0 auto;
+                    background-color: var(--bg-secondary);
+                    padding: 2rem;
+                    border-radius: 0.5rem;
+                    border: 1px solid var(--border-color);
+                }
+
+                .form-group {
+                    margin-bottom: 1.5rem;
+                }
+
+                .form-group label {
+                    display: block;
+                    margin-bottom: 0.5rem;
+                    font-weight: 600;
+                    color: var(--text-primary);
+                }
+
+                .form-group input,
+                .form-group textarea {
+                    width: 100%;
+                    padding: 0.75rem;
+                    border: 1px solid var(--border-color);
+                    border-radius: 0.5rem;
+                    background-color: var(--bg-primary);
+                    color: var(--text-primary);
+                    font-family: inherit;
+                    font-size: 1rem;
+                    transition: var(--transition);
+                }
+
+                .form-group input:focus,
+                .form-group textarea:focus {
+                    outline: 2px solid var(--primary-color);
+                    outline-offset: 2px;
+                    border-color: var(--primary-color);
+                }
+
+                .form-group textarea {
+                    min-height: 150px;
+                    resize: vertical;
+                }
+
+                .form-error {
+                    color: #ef4444;
+                    font-size: 0.875rem;
+                    margin-top: 0.25rem;
+                    display: none;
+                }
+
+                .form-error.active {
+                    display: block;
+                }
+
+                .form-group.error input,
+                .form-group.error textarea {
+                    border-color: #ef4444;
+                }
+
+                .form-success {
+                    background-color: #10b981;
+                    color: white;
+                    padding: 1rem;
+                    border-radius: 0.5rem;
+                    margin-bottom: 1rem;
+                    display: none;
+                }
+
+                .form-success.active {
+                    display: block;
+                }
+            </style>
+            <div class="container">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <p>I'd love to hear from you. Send me a message and I'll respond as soon as possible.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <h3>Address</h3>
+                        <p>Palashbari-5730, Gaibandha, Bangladesh</p>
+                    </div>
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                        <h3>Email</h3>
+                        <p><a href="mailto:sourovsarker005@gmail.com">sourovsarker005@gmail.com</a></p>
+                    </div>
+                    <div class="contact-card">
+                        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                        </svg>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+8801728326959">+8801728326959</a></p>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-envelope text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Email</h4>
-                        <hr class="my-4">
-                        <div class="small text-black-50">
-                            <a href="#">sourovsarker005@gmail.com</a>
-                        </div>
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="form-success" id="formSuccess" role="alert">
+                        Thank you! Your message has been sent successfully.
                     </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-3 mb-md-0">
-                <div class="card py-4 h-100">
-                    <div class="card-body text-center">
-                        <i class="fas fa-mobile-alt text-primary mb-2"></i>
-                        <h4 class="text-uppercase m-0">Phone</h4>
-                        <hr class="my-4">
-                        <div class="small text-black-50">+8801728326959</div>
+                    <div class="form-group">
+                        <label for="name">Name <span aria-label="required">*</span></label>
+                        <input type="text" id="name" name="name" required aria-required="true" aria-describedby="nameError">
+                        <div class="form-error" id="nameError" role="alert"></div>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="email">Email <span aria-label="required">*</span></label>
+                        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="emailError">
+                        <div class="form-error" id="emailError" role="alert"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" aria-describedby="subjectError">
+                        <div class="form-error" id="subjectError" role="alert"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message <span aria-label="required">*</span></label>
+                        <textarea id="message" name="message" required aria-required="true" aria-describedby="messageError"></textarea>
+                        <div class="form-error" id="messageError" role="alert"></div>
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
             </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <style>
+            .footer {
+                background-color: var(--bg-secondary);
+                border-top: 1px solid var(--border-color);
+                padding: 3rem 0 1.5rem;
+                text-align: center;
+            }
+
+            .social-links {
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .social-link {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                background-color: var(--bg-primary);
+                border: 1px solid var(--border-color);
+                border-radius: 50%;
+                transition: var(--transition);
+            }
+
+            .social-link:hover, .social-link:focus {
+                background-color: var(--primary-color);
+                border-color: var(--primary-color);
+                transform: translateY(-3px);
+                outline: 2px solid var(--primary-color);
+                outline-offset: 2px;
+            }
+
+            .social-link svg {
+                width: 20px;
+                height: 20px;
+                fill: var(--text-primary);
+            }
+
+            .social-link:hover svg, .social-link:focus svg {
+                fill: white;
+            }
+
+            .footer-text {
+                color: var(--text-secondary);
+                font-size: 0.9rem;
+            }
+        </style>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://github.com/SOUROVSARKERTEC12" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/sourov-sarker-b3b06117b/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/SOUROVSARKER4" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/sourov.saurabh.3" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://stackoverflow.com/users/9541123/sourov-sarkar" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Stack Overflow profile">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M15 21h-10v-2h10v2zm1.698-15.68l-1.417-1.417-6.705 6.704 1.417 1.417 6.705-6.704zm-2.99 3.84l-1.416-1.417-8.396 8.396 1.416 1.417 8.396-8.396zm-5.284-2.09l-1.414-1.414-10.607 10.606 1.414 1.415 10.607-10.607zm8.586 5.705h-13v-2h13v2z"/>
+                    </svg>
+                </a>
+            </div>
+            <p class="footer-text">
+                &copy; <span id="currentYear"></span> Sourov Sarkar. All rights reserved.
+            </p>
         </div>
+    </footer>
 
-        <div class="social d-flex justify-content-center">
-            <a href="https://twitter.com/SOUROVSARKER4" class="mx-2">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://www.facebook.com/sourov.saurabh.3" class="mx-2">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://github.com/SOUROVSARKERTEC12" class="mx-2">
-                <i class="fab fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/sourov-sarker-b3b06117b/" class="mx-2">
-                <i class="fab fa-linkedin"></i>
-            </a>
-        </div>
+    <!-- JavaScript -->
+    <script defer>
+        // Project data for modal
+        const projects = {
+            netflix: {
+                title: 'Netflix Clone',
+                date: 'Mar 2023 - Jul 2023',
+                description: 'Experience the world of entertainment brought to life with this Netflix Clone, an immersive streaming interface inspired by the iconic Netflix design. Built with modern web technologies, the project features a sleek, responsive UI and smooth interactions that recreate the feel of a real streaming platform.',
+                tech: ['React', 'Node.js', 'Express.js', 'MongoDB'],
+                repo: 'https://github.com/SOUROVSARKERTEC12/Netflix',
+                live: null
+            },
+            task: {
+                title: 'Task Management Application',
+                date: 'Sep 2023 - Nov 2023',
+                description: 'A task management application built with the MERN stack that supports secure user authentication and essential task operations, including creating, modifying, and removing tasks.',
+                tech: ['React', 'Tailwind', 'Node.js', 'Express.js'],
+                repo: 'https://github.com/SOUROVSARKERTEC12/Task_Management_App',
+                live: null
+            },
+            'file-auth': {
+                title: 'File Auth Management',
+                date: 'Nov 2025',
+                description: 'A robust, production-ready NestJS application for file management with JWT authentication and role-based access control (RBAC).',
+                tech: ['NestJS', 'Express.js', 'MySQL', 'JWT'],
+                repo: 'https://github.com/SOUROVSARKERTEC12/file-auth-management',
+                live: null
+            }
+        };
 
-    </div>
-</section>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const navHeight = document.querySelector('nav').offsetHeight;
+                        const targetPosition = target.offsetTop - navHeight;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                        // Close mobile menu if open
+                        const navMenu = document.getElementById('navMenu');
+                        const navToggle = document.getElementById('navToggle');
+                        if (navMenu && navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            navToggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                }
+            });
+        });
 
-<!-- Footer -->
-<footer class="bg-black small text-center text-white-50">
-    <div class="container">
-        Copyright &copy;  Website 2019
-    </div>
-</footer>
+        // Navigation scroll effect
+        const nav = document.getElementById('mainNav');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        });
 
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        // Mobile menu toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isActive = navMenu.classList.toggle('active');
+                navToggle.setAttribute('aria-expanded', isActive);
+            });
+        }
 
-<!-- Plugin JavaScript -->
-<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        if (currentTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+        }
 
-<!-- Custom scripts for this template -->
-<script src="js/grayscale.min.js"></script>
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                // Update icon
+                const icon = themeToggle.querySelector('svg');
+                if (newTheme === 'dark') {
+                    icon.innerHTML = '<path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z"/>';
+                } else {
+                    icon.innerHTML = '<path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.166a.75.75 0 00-1.06-1.06l-1.591 1.59a.75.75 0 101.06 1.061l1.591-1.59zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.834 18.894a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 10-1.061 1.06l1.59 1.591zM12 18a.75.75 0 01.75.75V21a.75.75 0 01-1.5 0v-2.25A.75.75 0 0112 18zM7.758 17.303a.75.75 0 00-1.061-1.06l-1.591 1.59a.75.75 0 001.06 1.061l1.591-1.59zM6 12a.75.75 0 01-.75.75H3a.75.75 0 010-1.5h2.25A.75.75 0 016 12zM6.697 7.757a.75.75 0 001.06-1.06l-1.59-1.591a.75.75 0 00-1.061 1.06l1.59 1.591z"/>';
+                }
+            });
+        }
+
+        // Project modal functionality
+        const projectCards = document.querySelectorAll('.project-card');
+        const modal = document.getElementById('projectModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDate = document.getElementById('modalDate');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalTech = document.getElementById('modalTech');
+        const modalLinks = document.getElementById('modalLinks');
+        const modalImage = document.getElementById('modalImage');
+
+        function openModal(projectId) {
+            const project = projects[projectId];
+            if (!project) return;
+
+            modalTitle.textContent = project.title;
+            modalDate.textContent = project.date;
+            modalDescription.textContent = project.description;
+            modalImage.alt = project.title + ' project screenshot';
+            
+            // Set tech tags
+            modalTech.innerHTML = project.tech.map(tech => 
+                `<span class="tech-tag">${tech}</span>`
+            ).join('');
+
+            // Set links
+            modalLinks.innerHTML = '';
+            if (project.repo) {
+                const repoLink = document.createElement('a');
+                repoLink.href = project.repo;
+                repoLink.target = '_blank';
+                repoLink.rel = 'noopener noreferrer';
+                repoLink.className = 'project-link';
+                repoLink.innerHTML = `
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    Repository
+                `;
+                modalLinks.appendChild(repoLink);
+            }
+            if (project.live) {
+                const liveLink = document.createElement('a');
+                liveLink.href = project.live;
+                liveLink.target = '_blank';
+                liveLink.rel = 'noopener noreferrer';
+                liveLink.className = 'project-link';
+                liveLink.innerHTML = `
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 17l-5-5 1.414-1.414L10 14.586l7.586-7.586L19 8l-9 9z"/>
+                    </svg>
+                    Live Demo
+                `;
+                modalLinks.appendChild(liveLink);
+            }
+
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const projectId = card.getAttribute('data-project');
+                openModal(projectId);
+            });
+        });
+
+        if (modalClose) {
+            modalClose.addEventListener('click', closeModal);
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Form validation
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                let isValid = true;
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const message = document.getElementById('message');
+                const nameError = document.getElementById('nameError');
+                const emailError = document.getElementById('emailError');
+                const messageError = document.getElementById('messageError');
+                const formSuccess = document.getElementById('formSuccess');
+
+                // Reset errors
+                [nameError, emailError, messageError].forEach(err => {
+                    if (err) {
+                        err.textContent = '';
+                        err.classList.remove('active');
+                    }
+                });
+                [name, email, message].forEach(field => {
+                    if (field) {
+                        field.parentElement.classList.remove('error');
+                    }
+                });
+                if (formSuccess) {
+                    formSuccess.classList.remove('active');
+                }
+
+                // Validate name
+                if (!name.value.trim()) {
+                    if (nameError) {
+                        nameError.textContent = 'Name is required';
+                        nameError.classList.add('active');
+                    }
+                    if (name) {
+                        name.parentElement.classList.add('error');
+                    }
+                    isValid = false;
+                }
+
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email.value.trim()) {
+                    if (emailError) {
+                        emailError.textContent = 'Email is required';
+                        emailError.classList.add('active');
+                    }
+                    if (email) {
+                        email.parentElement.classList.add('error');
+                    }
+                    isValid = false;
+                } else if (!emailRegex.test(email.value)) {
+                    if (emailError) {
+                        emailError.textContent = 'Please enter a valid email address';
+                        emailError.classList.add('active');
+                    }
+                    if (email) {
+                        email.parentElement.classList.add('error');
+                    }
+                    isValid = false;
+                }
+
+                // Validate message
+                if (!message.value.trim()) {
+                    if (messageError) {
+                        messageError.textContent = 'Message is required';
+                        messageError.classList.add('active');
+                    }
+                    if (message) {
+                        message.parentElement.classList.add('error');
+                    }
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    // In a real application, you would send the form data to a server
+                    // For now, we'll just show a success message
+                    if (formSuccess) {
+                        formSuccess.classList.add('active');
+                        contactForm.reset();
+                        setTimeout(() => {
+                            formSuccess.classList.remove('active');
+                        }, 5000);
+                    }
+                } else {
+                    // Focus first error field
+                    const firstError = contactForm.querySelector('.error input, .error textarea');
+                    if (firstError) {
+                        firstError.focus();
+                    }
+                }
+            });
+        }
+
+        // Set current year in footer
+        const currentYear = document.getElementById('currentYear');
+        if (currentYear) {
+            currentYear.textContent = new Date().getFullYear();
+        }
+    </script>
 
 </body>
 
